@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Калькулятор Палива</title>
+    <link rel="stylesheet" href="css/css/style.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <div class="head">
+        <h1>Веб калькулятори</h1>
+    </div>
+    <div class="background-rectangle"></div>
+    <div class="container">
+        <div class="calc1">
+            <h1>Калькулятор 1</h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm1">
+                <label for="hp">Hp,%:</label>
+                <input type="number" id="hp" name="hp"><br>
+                <label for="cp">Cp,%:</label>
+                <input type="number" id="cp" name="cp"><br>
+                <label for="sp">Sp,%:</label>
+                <input type="number" id="sp" name="sp"><br>
+                <label for="np">Np,%:</label>
+                <input type="number" id="np" name="np"><br>
+                <label for="op">Op,%:</label>
+                <input type="number" id="op" name="op"><br>
+                <label for="wp">Wp,%:</label>
+                <input type="number" id="wp" name="wp"><br>
+                <label for="ap">Ap,%:</label>
+                <input type="number" id="ap" name="ap"><br>
+                <button type="button"  onclick="calculate1()">Розрахувати</button>
+            </form>
+            
+        <div id="result1"></div>
+        
+        </div>
+        <div class="calc2">
+            <h1>Калькулятор 2</h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm2">
+                <label for="cf">Cf,%:</label>
+                <input type="number" id="cf" name="cf"><br>
+                <label for="hf">Hf,%:</label>
+                <input type="number" id="hf" name="hf"><br>
+                <label for="of">Of,%:</label>
+                <input type="number" id="of" name="of"><br>
+                <label for="sf">Sf,%:</label>
+                <input type="number" id="sf" name="sf"><br>
+                <label for="x1">Теплота згоряння (МДж/кг):</label>
+                <input type="number" id="x1" name="x1"><br>
+                <label for="x2">Вологість,%:</label>
+                <input type="number" id="x2" name="x2"><br>
+                <label for="x3">Зольність,%:</label>
+                <input type="number" id="x3" name="x3"><br>
+                <label for="v">Ванадій (мг/кг):</label>
+                <input type="number" id="v" name="v"><br>
+                <button  type="button" onclick="calculate2()">Розрахувати</button>
+            </form>
+           
+            <div id="result2"></div>
+        </div>
+    </div>
+</body>
+</html>
