@@ -56,9 +56,9 @@ function calculate1() {
         var hf = parseFloat(document.getElementById("hf").value) || 0; // Hf
         var of = parseFloat(document.getElementById("of").value) || 0; // Of
         var sf = parseFloat(document.getElementById("sf").value) || 0; // Sf
-        var temp = parseFloat(document.getElementById("x1").value) || 0; // Теплота згоряння
-        var vog = parseFloat(document.getElementById("x2").value) || 0; // Вологість
-        var zol = parseFloat(document.getElementById("x3").value) || 0; // Зольність
+        var temp = parseFloat(document.getElementById("temp").value) || 0; // Теплота згоряння
+        var vog = parseFloat(document.getElementById("vog").value) || 0; // Вологість
+        var zol = parseFloat(document.getElementById("zol").value) || 0; // Зольність
         var v = parseFloat(document.getElementById("v").value) || 0; // Ванадій
     
         // Розрахунки
