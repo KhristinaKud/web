@@ -1,0 +1,89 @@
+/* весь сайт */
+body {
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.318)
+}
+
+/* Стилі для заголовків */
+.head h1 {
+    text-align: center;
+    font-size: 34px;
+    color: orange ;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.3);
+}
+/* оранджева полоска */
+.background-rectangle {
+    margin-top: 270px;
+    width: 100%; /* Займає всю ширину */
+    height: 250px; /* Висота прямокутника */
+    background-color: rgba(255, 166, 0, 0.488); 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    z-index: -1; 
+}
+/* Стилі для контейнера */
+.container {
+    display: flex; /* Дозволяє вирівнювати вміст */
+    justify-content: center; /* Горизонтальне вирівнювання по центру */
+    align-items: center; 
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calc1{
+    
+    background-color: #e0e0e0;
+    padding: 20px; /* внутрішній відступ */
+    border-radius: 10px; /* заокруглення кутів */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.calc1 input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}  
+
+.calc1 label {
+    font-weight: bold; /* Жирний  текст */
+    margin-bottom: 5px;
+
+}
+/* кнопки розрахувати */
+button {
+    background-color: #ff9800;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* наведення курсору миші на кнопки*/
+button:hover {
+    background-color: #e68900;
+}
+#result1{
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1.2rem;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Калькулятор для валових викидів</title>
+    <link rel="stylesheet" href="css/css/style.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <div class="head">
+        <h1>Веб калькулятор</h1>
+    </div>
+    <div class="background-rectangle"></div>
+    <div class="container">
+        <div class="calc1">
+            <h1>Калькулятор </h1>
+            <h2>Первинні дані для варіанту 9 </h2>
+            <form id="fuelForm1">
+                <label for="gasvog">Маса донецького газового вугілля,%:</label>
+                <input type="number" id="gasvog" name="gasvog"><br>
+                <label for="mazuta">Маса високосірчистого мазуту,%:</label>
+                <input type="number" id="mazuta" name="mazuta"><br>
+                <label for="natural gas">Маса натурального газу,%:</label>
+                <input type="number" id="natural gas" name="natural gas"><br>
+                <button type="button"  onclick="calculate1()">Розрахувати</button>
+            </form>
+            
+        <div id="result1"></div>
+    </div>
+</body>
+</html>
