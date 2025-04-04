@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Калькулятор для розрахунку струма</title>
+    <link rel="stylesheet" href="css/css/style.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <div class="head">
+        <h1>Веб калькулятори</h1>
+    </div>
+    <div class="background-rectangle"></div>
+    <div class="container">
+        <div class="calc1">
+            <h1>Калькулятор 1</h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm1">
+                <label for="napruga">Напруга U, кв :</label>
+                <input type="number" id="U" name="U"><br>
+                <label for="Strym">Струм Кз Ik, кА:</label>
+                <input type="number" id="Ik" name="Ik"><br>
+                <label for="time">Фіктивний час вимикання струму tf,с:</label>
+                <input type="number" id="tf" name="tf"><br>
+                <label for="Sm">Sm, Кв*А:</label>
+                <input type="number" id="Sm" name="Sm"><br>
+                <button type="button"  onclick="calculate1()">Розрахувати</button>
+            </form>
+        <div id="result1"></div>
+        
+        </div>
+        <div class="calc2">
+            <h1>Калькулятор 2</h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm2">
+                <label for="Power"> Потужність Р, МВ * А:</label>
+                <input type="number" id="P" name="P"><br>
+                <button  type="button" onclick="calculate2()">Розрахувати</button>
+            </form> 
+            <div id="result2"></div>
+        </div><div class="calc3">
+            <h1>Калькулятор 3 </h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm3">
+                <label for="Opir">Опір мереж з наругою, кВ:</label>
+                <input type="number" id="R" name="R">
+                <label for="Rch">Rc.h, Ом:</label>
+                <input type="number" id="Rch" name="Rch">
+                <label for="Xcn">Xc.h, Ом:</label>
+                <input type="number" id="Xcn" name="Xcn">
+                <label for="RcMin">Rc.Min,Ом:</label>
+                <input type="number" id="RcMin" name="RcMin">
+                <label for="XcMin">Xc.Min, Ом:</label>
+                <input type="number" id="XcMin" name="XcMin">
+                <button type="button" onclick="calculate3()">Розрахувати</button>
+            </form>
+            <div id="result3"></div>
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>
