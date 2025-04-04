@@ -1,23 +1,24 @@
 // Функція для розрахунку першого калькулятора
 function calculate1() {
         // Вхідні дані 
-        var gasvog = parseFloat(document.getElementById("gasvog").value)
-        var mazuta = parseFloat(document.getElementById("mazuta").value)
-        var naturalGas = parseFloat(document.getElementById("natural gas").value)
-        // Розрахунки
-        //Показники емісії при спалюванні вугілля
-        var ktvVog = (Math.pow(10,6)/20.47)*0.8*(25.20/(100-1.5))*(1-0.985)
-        //Валовий викид 
-        var EtvVog = Math.pow(10,-6)*ktvVog*20.47*gasvog
-        //Показники емісії при спалюванні мазути
-        var ktvMaz = (Math.pow(10,6)/39.48)*1*(0.15/(100-0))*(1-0.985)
-        //Валовий викид 
-        var EtvMAz = Math.pow(10,-6)*ktvMaz*39.48*mazuta
-         //Показники емісії при спалюванні природного газу 
-         var ktvGas = 0 //тому що частка золи і масовий вміст золи немає в природному газі
-         //Валовий викид 
-         var EtvGas = Math.pow(10,-6)*ktvGas*33.08*naturalGas
+        var Pc = parseFloat(document.getElementById("Pc").value)
+        var vidx = parseFloat(document.getElementById("vidx").value)
+        var tarif = parseFloat(document.getElementById("tarif").value)
+        // Розрахунки для першої частки
+        var betaW1 = 0.2
+        var W1 = Pc * 24 * betaW1
+        var P1 = W1 * tarif
+        var W2 = Pc * 24 * (1-betaW1)
+        var Sh1 = W2 * tarif;
+        var Z1 = (Sh1-P1)
+        // Розрахунки для другої частки 
+        var betaW2 = 0.68
+        var W3 = Pc * 24 * betaW2
+        var P2 = W3 * tarif
+        var W4 = Pc * 24 * (1-betaW2)
+        var Sh2 = W4*tarif
+        var Z2 = -(Sh2-P2)
          //Результат
-       document.getElementById("result1").innerHTML = "Результат: <br> Показник емісії твердих частинок при спалюванні вугілля становитиме: " + ktvVog.toFixed(2) +"г/ГДж <br>Валовий викид при спалюванні вугілля становитиме:"+ EtvVog.toFixed(2)+ "т <br> Показник емісії твердих частинок при спалюванні мазуту становитиме:"+ktvMaz.toFixed(2)+" г/ГДж<br> Валовий викид при спалюванні мазуту становитиме:"+EtvMAz.toFixed(2)+" т <br> Показник емісії твердих частинок при спалюванні прородного газу становитиме: " +ktvGas.toFixed(2) + "г/ГДж <br>Валовий викид при спалюванні прородного газу становитиме:"+ EtvGas.toFixed(2);
+       document.getElementById("result1").innerHTML = "Результат: <br>Для першої частки <br> Отже за 20% електроенергії становитиме " + W1.toFixed(2) +" Мтв*год. <br>Сонячна електростанція отримає Прибуток = "+ P1.toFixed(2)+ " тис грн <br> а за 80% енергії =  "+W2.toFixed(2)+"  Мвт*год.<br> Виплачує штраф = "+Sh1.toFixed(2)+" грн <br> Отже, така електростанція не є рентабельною і працює в збиток "+ Z1.toFixed(2)+"тис грн <br>Для другої частки <br> За 68% електроенергії становитиме "+W3.toFixed(2)+" Мтв*год. <br>Сонячна електростанція отримає Прибуток = "+ P2.toFixed(2)+ " тис грн <br> а за 32% енергії = "+W4.toFixed(2)+"  Мвт*год<br> Виплачує штраф = "+Sh2.toFixed(2)+" тис грн, що дозволяє отримати прибуток" +Z2.toFixed(2)+" тис грн";
     }
     

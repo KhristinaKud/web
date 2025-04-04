@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веб Калькулятор для валових викидів</title>
+    <title>Веб Калькулятор прибутку для сонячних електростанцій</title>
     <link rel="stylesheet" href="css/css/style.css">
     <script src="js/script.js"></script>
 
@@ -16,14 +16,13 @@
     <div class="container">
         <div class="calc1">
             <h1>Калькулятор </h1>
-            <h2>Первинні дані для варіанту 9 </h2>
             <form id="fuelForm1">
-                <label for="gasvog">Маса донецького газового вугілля,%:</label>
-                <input type="number" id="gasvog" name="gasvog"><br>
-                <label for="mazuta">Маса високосірчистого мазуту,%:</label>
-                <input type="number" id="mazuta" name="mazuta"><br>
-                <label for="natural gas">Маса натурального газу,%:</label>
-                <input type="number" id="natural gas" name="natural gas"><br>
+                <label for="Pc">Середньодобова потужність(Мвт):</label>
+                <input type="number" id="Pc" name="Pc"><br>
+                <label for="vidx">Допустиме відхилення(%):</label>
+                <input type="number" id="vidx" name="vidx"><br>
+                <label for="tarif">Тариф(грн/Квт*год):</label>
+                <input type="tarif" id="tarif" name="tarif"><br>
                 <button type="button"  onclick="calculate1()">Розрахувати</button>
             </form>
             
