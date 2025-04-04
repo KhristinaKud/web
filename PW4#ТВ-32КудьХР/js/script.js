@@ -43,7 +43,6 @@ function calculate1() {
       const Ukmax = 11.1 // напруга вальтажу 
       const Snomt = 6.3 // потужність трансформатора
       // Розрахунки
-      
         var Xt = (Ukmax * Math.pow(R,2))/(100 * Snomt);
         var Xsh = Xcn + Xt;
         var Zsh = Math.sqrt(Math.pow(Rch,2) + Math.pow(Xsh,2));
