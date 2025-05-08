@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Калькулятор для одноколової та двоколової систем</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/css/style.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="calc1">
+            <h1>Калькулятор 1</h1>
+            <h2>Первинні дані</h2>
+            <form id="fuelForm1">
+                <label for="switch110">Найменування ЕП</label>
+                <input type="number" id="switch110" name="switch110"><br>
+                <label for="PL110kV">Ном.знач ККД ЕП</label>
+                <input type="number" id="PL110kV" name="PL110kV"><br>
+                <label for="transformer">КПН</label>
+                <input type="number" id="transformer" name="transformer"><br>
+                <label for="switch10">Напруга навантаження</label>
+                <input type="number" id="switch10" name="switch10"><br>
+                <label for="numberconnect">Кі-ть ЕП</label>
+                <input type="number" id="numberconnect" name="numberconnect"><br>
+                <label for="switch10">Ном.потуж ЕП</label>
+                <input type="number" id="switch10" name="switch10"><br>
+                <label for="numberconnect">Коеф використання</label>
+                <input type="number" id="numberconnect" name="numberconnect"><br>
+                <label for="numberconnect">Коеф реактивної потужності</label>
+                <input type="number" id="numberconnect" name="numberconnect"><br>
+                <button type="button"  onclick="calculate1()">Розрахувати</button>
+            </form>
+            
+        <div id="result1"></div>      
+    </div>
+</body>
+</html>
