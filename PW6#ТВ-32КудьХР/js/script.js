@@ -1,49 +1,72 @@
 // Функція для розрахунку першого калькулятора
 function calculate1() {
-  // Отримання значень від користувача
-  var switch110 = parseFloat(document.getElementById("switch110").value) || 0; 
-  var PL110kV = parseFloat(document.getElementById("PL110kV").value) || 0; 
-  var transformer = parseFloat(document.getElementById("transformer").value) || 0; 
-  var switch10 = parseFloat(document.getElementById("switch10").value) || 0; 
-  var numberconnect = parseFloat(document.getElementById("numberconnect").value) || 0; 
-  const connect = 0.03;
-  const tswitch110 = 30;   
-  const tPL110kV = 10;    
-  const t_transformer = 100; 
-  const tswitch10 = 15;     
-  const tnumberconnect = 2; 
-  const kPmax = 43;    
-
-  // Розрахунки для одноколової системи
-  var Woc = switch110 + PL110kV + transformer + switch10 + connect * numberconnect;
-  var tWoc = (switch110 * tswitch110 + PL110kV * tPL110kV + transformer * t_transformer + switch10 * tswitch10 + connect * numberconnect * tnumberconnect) / Woc;
-  var kAoc = (Woc * tWoc) / 8760;  
-  var kPoc = (1.2 * kPmax) / 8760;  
-
-  // Розрахунки для двоколової системи
-  var Wdk = 2 * Woc * (kAoc + kPoc);
-  var Wdc = (Wdk + switch10);
-
-  // Виведення результатів (у форматі 10^-4)
-  document.getElementById("result1").innerHTML =
-      "Результат: <br> Одноколова система <br> Частота відмов (рік⁻¹) " + Woc.toFixed(3) + "<br> Середній час відновлення (год) " + tWoc.toFixed(1) + "<br> Коефіцієнт аварійного простою  " + (kAoc * 10000).toFixed(2) + "<br> Коефіцієнт планового простою  " + (kPoc * 10000).toFixed(1) + "<br> Двоколова система <br> Частота відмов (рік⁻¹) " + (Wdk * 10000).toFixed(2) + "<br> Частота відмов (з секційним вимикачем) " + Wdc.toFixed(4) + "<br> Висновки: Надійність двоколової системи електропередачі є значно вище, ніж одноколової.";
-}
-    
-    // Функція для розрахунку другого калькулятора
-    function calculate2() {
-        // Отримання значень від користувача
-        var Zper_a = parseFloat(document.getElementById("Zper_a").value) || 0; 
-        var Zper_p = parseFloat(document.getElementById("Zper_p").value) || 0; 
-        var transformer = parseFloat(document.getElementById("transformer2").value) || 0; 
-        var t_transformer = parseFloat(document.getElementById("t_transformer2").value) || 0; 
-        const Kp = 0.004; 
-        const Pm =5120;
-        const Tm = 6451;
+        var Ph1_4 = parseFloat(document.getElementById("Ph").value) || 0; 
+        var Kv24 = parseFloat(document.getElementById("Kv").value) || 0; 
+        var tg13= parseFloat(document.getElementById("tg").value) || 0; 
+        const Un = 0.38;
+        const kPhi = 752;
+        const Phi = 2330;
+        const nPh = 2330;
+        const nPh_2 = 96388;
+        const Phtg = 657;
+        const n1_4 = 4;
+        const n5_6 = 2;
+        const n9_12 = 4;
+        const n13 = 1; 
+        const n16 = 1;
+        const n24 = 1;
+        const n26_27 = 2;
+        const n36 = 1;
+        const Ph5_6 = 14;
+        const Ph9_12 = 42;
+        const Ph13 = 36;
+        const Ph16 = 20;
+        const Ph24 = 40;
+        const Ph26_27 = 32;
+        const Ph36 = 20;
+        const Kv1_4 = 0.15;
+        const Kv5_6 = 0.12;
+        const Kv9_12 = 0.15;
+        const Kv13 = 0.3;
+        const Kv16 = 0.5;
+        const Kv26_27 = 0.2;
+        const Kv36 = 0.65;
+        const tg1_4 = 1.33;
+        const tg5_6 = 1;
+        const tg9_12 = 1.33;
+        const tg16 = 0.75;
+        const tg24 = 1;
+        const tg26_27 = 1;
+        const tg36 = 0.75;
         // Розрахунки математичне сподівання
-        var M_Wned_a = transformer *t_transformer * Pm * Tm;
-        var M_Wned_p = Kp * Pm * Tm;
-        var M_Zper = Zper_a * M_Wned_a + Zper_p * M_Wned_p;      
+        var nPh1_4 = n1_4 * Ph1_4;
+        var nPh5_6 = n5_6 * Ph5_6;
+        var nPh9_12 = n9_12 * Ph9_12;
+        var nPh13 = n13 * Ph13;
+        var nPh16 = n16 * Ph16;
+        var nPh24 = n24 * Ph24;
+        var nPh26_27 = n26_27 * Ph26_27;
+        var nPh36 = n36 * Ph36;
+       
+        var Kv1 = (nPh1_4 * Kv1_4 + nPh5_6 * Kv5_6 + nPh9_12 * Kv9_12 + nPh13 * Kv13 + nPh16 * Kv16 + nPh24 * Kv24 + nPh26_27 * Kv26_27 + nPh36 * Kv36 ) / (nPh1_4 + nPh5_6 + nPh9_12 + nPh13 + nPh16 + nPh24 + nPh26_27 + nPh36);
+        
+        var Ne1 = Math.pow((nPh1_4 + nPh5_6 + nPh9_12 + nPh13 + nPh16 + nPh24 + nPh26_27 + nPh36 ),2) / (n1_4 * Math.pow(Ph1_4,2) + n5_6 * Math.pow(Ph5_6,2) + n9_12* Math.pow(Ph9_12,2) + n13 * Math.pow(Ph13,2) + n16 * Math.pow(Ph16,2) + n24 * Math.pow(Ph24,2) + n26_27 * Math.pow(Ph26_27,2) + n36 * Math.pow(Ph36,2));
+       
+        var Pp1 = 1.25 * (nPh1_4 * Kv1_4 + nPh5_6 * Kv5_6 + nPh9_12 * Kv9_12 + nPh13 * Kv13 + nPh16 * Kv16 + nPh24 * Kv24 + nPh26_27 * Kv26_27 + nPh36 * Kv36);
 
-       document.getElementById("result2").innerHTML = "Результат: <br> Математичне сподівання аварійного недовідпущення електоенергії становить " + M_Wned_a+" <br> Математичне сподівання планового недовідпущення електоенергії становить " + M_Wned_p.toFixed(1)+ "<br> Математичне сподівання збитків від переривання електропостачання становить " + M_Zper.toFixed(0);
-    }
+        var Qp1 = 1 * (nPh1_4 * Kv1_4 * tg1_4+ nPh5_6 * Kv5_6 * tg5_6 + nPh9_12 * Kv9_12 * tg9_12 + nPh13 * Kv13 * tg13 + nPh16 * Kv16 * tg16 + nPh24 * Kv24 * tg24+ nPh26_27 * Kv26_27 * tg26_27 + nPh36 * Kv36 * tg36)
+        
+        var Sp1 = Math.sqrt((Math.pow(Pp1,2))+ Math.pow(Qp1,2));
+        var Ip1 = Pp1 / Un;
+
+        var Kv2 = kPhi / Phi;
+        var Ne2 = Math.pow(nPh,2) / nPh_2;
+        var Pp2 = 0.7 * kPhi;
+        var Qp2 = 0.7 * Phtg;
+        var Sp2 = Math.sqrt((Math.pow(Pp2,2))+ Math.pow(Qp2,2));
+        var Ip2 = Pp2 / Un;
+
+        document.getElementById("result1").innerHTML = " Результати:<br>  1. Груповий коефіцієнт використання для ШР1=ШР2=ШР3: " + Kv1.toFixed(4) + "<br>  2. Ефективна кількість ЕП для ШР1=ШР2=ШР3: "+Ne1.toFixed(1)+ "<br> 3. Розрахунковий коефіцієнт активної потужності для ШР1=ШР2=ШР3: 1.25<br>4. Розрахункове активне навантаження для ШР1=ШР2=ШР3: "+ Pp1.toFixed(2)+" кВт <br> 5. Розрахункове реактивне навантаження для ШР1=ШР2=ШР3:" +Qp1.toFixed(3) + "кВар<br> 6. Повна потужність для ШР1=ШР2=ШР3: " + Sp1.toFixed(4) + "кВт<br> 7. Розрахунковий груповий струм для ШР1=ШР2=ШР3: " +Ip1.toFixed(2)+ "А<br> 8. Коефіцієнти використання цеху в цілому: " +Kv2.toFixed(2) + "<br>  9. Ефективна кількість ЕП цеху в цілому: " +Ne2.toFixed(1)+"<br> 10. Розрахунковий коефіцієнт активної потужності цеху в цілому: 0.7 <br> 11. Розрахункове активне навантаження на шинах 0,38 кВ ТП:" +Pp2.toFixed(1)+ " кВт<br> 12. Розрахункове реактивне навантаження на шинах 0,38 кВ ТП: " +Qp2.toFixed(1)+"кВар<br> 13. Повна потужність на шинах 0,38 кВ ТП:"+Sp2.toFixed(1)+" кВт<br>14. Розрахунковий груповий струм на шинах 0,38 кВ ТП: "+Ip2.toFixed(3)+"А" ;
+       }
+    
     
